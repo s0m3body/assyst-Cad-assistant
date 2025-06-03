@@ -2,13 +2,27 @@ import streamlit as st
 from openai import OpenAI
 import time
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-
-ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
-
 title="Assystent"
 st.set_page_config(page_title=title, page_icon="🤖")
 st.title("🤖 "+title)
+
+def login():
+    st.sidebar.title(title+" Login")
+    username = st.sidebar.text_input("Username")
+    password = st.sidebar.text_input("Password", type="password")
+    if st.sidebar.button("Login"):
+        if username == st.secrets["auth"]["username"] and password == st.secrets["auth"]["password"]:
+            st.session_state["authenticated"] = True
+        else:
+            st.sidebar.error("Invalid credentials!")
+
+if "authenticated" not in st.session_state or not st.session_state["authenticated"]:
+    login()
+    st.stop()
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
 
 if "thread_id" not in st.session_state:
     # Erstellt einen neuen Thread
