@@ -15,7 +15,7 @@ title="Assystente"
 st.set_page_config(page_title=title, page_icon="duck.png")
 st.markdown(f"""
     <div style="display: flex; align-items: center;">
-        <img src="{duck_base64}" width="80" style="margin-right: 15px;">
+        <img src="{duck_base64}" width="120" style="margin-right: 15px;">
         <h1 style="font-size: 48px; margin: 0;">{title}</h1>
     </div>
 """, unsafe_allow_html=True)
