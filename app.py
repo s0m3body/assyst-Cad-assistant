@@ -2,12 +2,20 @@ import streamlit as st
 from openai import OpenAI
 import time
 
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        b64_string = base64.b64encode(img_file.read()).decode()
+        return f"data:image/png;base64,{b64_string}"
+
+# Prepare
+duck_base64 = get_base64_image("duck.png")
+
 title="Assystente"
 st.set_page_config(page_title=title, page_icon="duck.png")
-st.markdown("""
+st.markdown(f"""
     <div style="display: flex; align-items: center;">
-        <img src="duck.png" width="80" style="margin-right: 15px;">
-        <h1 style="font-size: 48px; margin: 0;">"""+title+"""</h1>
+        <img src="{duck_base64}" width="80" style="margin-right: 15px;">
+        <h1 style="font-size: 48px; margin: 0;">{title}</h1>
     </div>
 """, unsafe_allow_html=True)
 
