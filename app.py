@@ -1,11 +1,11 @@
 import streamlit as st
 import openai
+from openai import OpenAI
 
-# Load the API key securely from Streamlit Secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-st.set_page_config(page_title="Chat with assyst Cad assistant", page_icon="🤖")
-st.title("🤖 Chat with assyst Cad assistant")
+st.set_page_config(page_title="Assyst Cad assistant", page_icon="🤖")
+st.title("🤖 Assyst Cad assistant")
 
 # Initialize message history
 if "messages" not in st.session_state:
@@ -44,7 +44,7 @@ for msg in st.session_state.messages[1:]:  # Skip the system message
         st.markdown(msg["content"])
 
 # User input box
-if prompt := st.chat_input(">>>"):
+if prompt := st.chat_input("Wie kann ich dir helfen?"):
     # Append user message
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
