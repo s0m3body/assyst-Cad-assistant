@@ -6,8 +6,9 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
 
-st.set_page_config(page_title="Assyst Cad Assistent", page_icon="🤖")
-st.title("🤖 Assyst Cad assistant")
+title="Assyst Cad Assistent"
+st.set_page_config(page_title=title, page_icon="🤖")
+st.title("🤖 "+title)
 
 if "thread_id" not in st.session_state:
     # Erstellt einen neuen Thread
