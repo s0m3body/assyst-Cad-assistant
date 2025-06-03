@@ -7,11 +7,10 @@ st.set_page_config(page_title=title, page_icon="🤖")
 st.title("🤖 "+title)
 
 def login():
-    st.sidebar.title(title+" Login")
-    username = st.sidebar.text_input("Username")
+    st.sidebar.title("Guru Login")
     password = st.sidebar.text_input("Password", type="password")
     if st.sidebar.button("Login"):
-        if username == st.secrets["auth"]["username"] and password == st.secrets["auth"]["password"]:
+        if password == st.secrets["password"]:
             st.session_state["authenticated"] = True
         else:
             st.sidebar.error("Invalid credentials!")
