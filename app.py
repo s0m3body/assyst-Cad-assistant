@@ -2,9 +2,9 @@ import streamlit as st
 from openai import OpenAI
 import time
 
-title="Assystent"
-st.set_page_config(page_title=title, page_icon="🤖")
-st.title("🤖 "+title)
+title="Assystente"
+st.set_page_config(page_title=title, page_icon="🦆")
+st.title("🦆 "+title)
 
 def login():
     st.sidebar.title("Guru Login")
