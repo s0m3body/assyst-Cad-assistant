@@ -1,6 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 import time
+import base64
 
 def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
