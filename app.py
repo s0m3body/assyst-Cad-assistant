@@ -6,7 +6,7 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
 
-st.set_page_config(page_title="Assyst Cad assistant", page_icon="🤖")
+st.set_page_config(page_title="Assyst Cad Assistent", page_icon="🤖")
 st.title("🤖 Assyst Cad assistant")
 
 if "thread_id" not in st.session_state:
@@ -14,7 +14,7 @@ if "thread_id" not in st.session_state:
     thread = client.beta.threads.create()
     st.session_state.thread_id = thread.id
 
-if prompt := st.chat_input("Wie kann ich dir helfen?"):
+if prompt := st.chat_input("Wie kann ich helfen?"):
     # Nachricht an Thread anhängen
     client.beta.threads.messages.create(
         thread_id=st.session_state.thread_id,
@@ -29,7 +29,7 @@ if prompt := st.chat_input("Wie kann ich dir helfen?"):
     )
 
     # Warten, bis die Ausführung abgeschlossen ist
-    with st.spinner("Assistant denkt..."):
+    with st.spinner("Ich denke..."):
         while True:
             run_status = client.beta.threads.runs.retrieve(
                 thread_id=st.session_state.thread_id,
