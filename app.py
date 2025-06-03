@@ -4,11 +4,12 @@ import time
 
 title="Assystente"
 st.set_page_config(page_title=title, page_icon="duck.png")
-col1, col2 = st.columns([1, 8])
-with col1:
-    st.image("duck.png", width=50)
-with col2:
-    st.markdown(title)
+st.markdown("""
+    <div style="display: flex; align-items: center;">
+        <img src="duck.png" width="80" style="margin-right: 15px;">
+        <h1 style="font-size: 48px; margin: 0;">"""+title+"""</h1>
+    </div>
+""", unsafe_allow_html=True)
 
 def login():
     st.sidebar.title("Guru Login")
