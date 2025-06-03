@@ -10,7 +10,7 @@ st.title("🤖 Chat with assyst Cad assistant")
 # Initialize message history
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "system", "content": "Du bist ein hilfreicher Assistent für Benutzer des Assyst CAD Systems.
+        {"role": "system", "content": """Du bist ein hilfreicher Assistent für Benutzer des Assyst CAD Systems.
 
 Benutzer stellen dir Fragen während der Arbeit mit der Software. Deine Aufgabe ist es, kurz, relevant und ausschließlich auf Deutsch zu antworten. Konzentriere dich darauf, dem Benutzer direkt und präzise weiterzuhelfen. Lass alles weg, was zwar korrekt ist, aber nicht zur konkreten Lösung des Problems beiträgt.
 
@@ -35,7 +35,7 @@ Beim Beantworten:
 6. Stelle keine Rückfragen. Beantworte, was gefragt wurde, und überlasse es dem Benutzer, bei Bedarf nachzufragen.
 
 7. Antworte immer auf Deutsch und verwende ausschließlich deutsche Funktions- und Makronamen.
-"}
+"""}
     ]
 
 # Show conversation history
