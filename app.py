@@ -1,13 +1,13 @@
 import streamlit as st
-import openai
 from openai import OpenAI
+import time
 
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
+ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
+
 st.set_page_config(page_title="Assyst Cad assistant", page_icon="🤖")
 st.title("🤖 Assyst Cad assistant")
-
-ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
 
 if "thread_id" not in st.session_state:
     # Erstellt einen neuen Thread
@@ -37,6 +37,9 @@ if prompt := st.chat_input("Wie kann ich dir helfen?"):
             )
             if run_status.status == "completed":
                 break
+            elif run_status.status in ["failed", "expired"]:
+                st.error("Assistant failed to respond.")
+                st.stop()
             time.sleep(1)
 
     # Antworten anzeigen
@@ -45,9 +48,8 @@ if prompt := st.chat_input("Wie kann ich dir helfen?"):
     )
 
     for msg in reversed(messages.data):
-        if msg.role == "assistant":
-            with st.chat_message("assistant"):
-                st.markdown(msg.content[0].text.value)
-        elif msg.role == "user":
-            with st.chat_message("user"):
-                st.markdown(msg.content[0].text.value)
+         role = msg.role
+        content = msg.content[0].text.value
+        with st.chat_message(role):
+            st.markdown(content)
+
