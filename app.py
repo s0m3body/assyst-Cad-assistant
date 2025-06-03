@@ -52,7 +52,7 @@ if prompt := st.chat_input("Wie kann ich dir helfen?"):
 
     # Get assistant response
     with st.chat_message("assistant"):
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4o",
             messages=st.session_state.messages,
         )
