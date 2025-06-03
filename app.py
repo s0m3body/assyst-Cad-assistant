@@ -6,7 +6,7 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB"
 
-title="Assyst Cad Assistent"
+title="Assystent"
 st.set_page_config(page_title=title, page_icon="🤖")
 st.title("🤖 "+title)
 
