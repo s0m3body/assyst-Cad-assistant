@@ -3,7 +3,7 @@ from openai import OpenAI
 import time
 
 title="Assystente"
-st.set_page_config(page_title=title, page_icon="🦆")
+st.set_page_config(page_title=title, page_icon="duck_icon.png")
 st.title("🦆 "+title)
 
 def login():
