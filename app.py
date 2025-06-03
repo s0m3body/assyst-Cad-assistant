@@ -6,7 +6,7 @@ title="Assystente"
 st.set_page_config(page_title=title, page_icon="duck.png")
 col1, col2 = st.columns([1, 8])
 with col1:
-    st.image("duck_icon.png", width=50)
+    st.image("duck.png", width=50)
 with col2:
     st.markdown(title)
 
