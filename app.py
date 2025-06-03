@@ -48,7 +48,7 @@ if prompt := st.chat_input("Wie kann ich dir helfen?"):
     )
 
     for msg in reversed(messages.data):
-         role = msg.role
+        role = msg.role
         content = msg.content[0].text.value
         with st.chat_message(role):
             st.markdown(content)
