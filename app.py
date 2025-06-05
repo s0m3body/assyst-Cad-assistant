@@ -18,7 +18,7 @@ def login_page():
     st.markdown("<div style='text-align: right;margin-bottom: 10%;'><b>...sie wird die Menschen ersetzen, die keine KI nutzen...</b></div>", unsafe_allow_html=True)
     with st.form("login_form"):
         password = st.text_input("Guru Kennwort:", type="password", help="")
-        submitted = st.form_submit_button("Login")
+        submitted = st.form_submit_button("Ich bin's")
         if submitted:
             if password == st.secrets["password"]:
                 st.session_state["authenticated"] = True
