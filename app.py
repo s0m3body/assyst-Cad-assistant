@@ -16,18 +16,6 @@ st.set_page_config(page_title=title, page_icon="duck.png")
 def login_page():
     st.markdown("<h1 style='text-align: center;'>KI wird keine Menschen ersetzen.</h1>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: right;margin-bottom: 10%;'>...sie wird die Menschen ersetzen, die keine KI nutzen...</div>", unsafe_allow_html=True)
-    st.markdown("""
-        <script>
-            const observer = new MutationObserver(() => {
-                const pwField = window.parent.document.querySelector('input[type="password"]');
-                if (pwField) {
-                    pwField.focus();
-                    observer.disconnect(); // stop observing after focus
-                }
-            });
-            observer.observe(window.parent.document, { childList: true, subtree: true });
-        </script>
-    """, unsafe_allow_html=True)
     with st.form("login_form"):
         password = st.text_input("Guru Kennwort:", type="password", help="")
         submitted = st.form_submit_button("Login")
