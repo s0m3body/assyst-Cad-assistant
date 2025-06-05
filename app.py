@@ -17,7 +17,7 @@ def login_page():
     # Optional: place outside or inside form
     st.markdown("""
         <style>
-            div[data-testid="stForm"] {
+            div[data-testid="login_form"] {
                 background: solid #666666;
                 max-width: 1000px;
                 width: 1000px;
