@@ -18,8 +18,14 @@ def login_page():
     st.markdown("<div style='text-align: right;margin-bottom: 10%;'>...sie wird die Menschen ersetzen, die keine KI nutzen...</div>", unsafe_allow_html=True)
     st.markdown("""
         <script>
-            const pwField = window.parent.document.querySelector('input[type="password"]');
-            if (pwField) { pwField.focus(); }
+            const observer = new MutationObserver(() => {
+                const pwField = window.parent.document.querySelector('input[type="password"]');
+                if (pwField) {
+                    pwField.focus();
+                    observer.disconnect(); // stop observing after focus
+                }
+            });
+            observer.observe(window.parent.document, { childList: true, subtree: true });
         </script>
     """, unsafe_allow_html=True)
     with st.form("login_form"):
