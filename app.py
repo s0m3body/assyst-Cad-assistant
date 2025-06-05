@@ -28,7 +28,7 @@ def login_page():
                 div[data-testid="stForm"] div {
                     white-space: nowrap;
                 }
-                div[data-testid="stTooltipIcon"] {
+                div[data-baseweb="tooltip"] {
                     display: none !important;
                 }
             </style>
