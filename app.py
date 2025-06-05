@@ -19,6 +19,7 @@ def login_page():
         <style>
             div[data-testid="stForm"] {
                 max-width: 1000px;
+                width: 1000px;
                 width: 100%;
             }
         </style>
