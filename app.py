@@ -16,13 +16,17 @@ st.set_page_config(page_title=title, page_icon="duck.png")
 def login_page():
     st.markdown("<h1 style='text-align: center;'>KI wird keine Menschen ersetzen.</h1>", unsafe_allow_html=True)
     st.markdown("<div style='text-align: right;margin-bottom: 10%;'>...sie wird die Menschen ersetzen, die keine KI nutzen...</div>", unsafe_allow_html=True)
-    password = st.text_input("Guru Kennwort:", type="password")
-    if st.button("Login"):
-        if password == st.secrets["password"]:
-            st.session_state["authenticated"] = True
-        else:
-            st.error("Invalid credentials!")
-                     
+    with st.form("login_form"):
+        password = st.text_input("Guru Kennwort:", type="password")
+        submitted = st.form_submit_button("Login")
+        if submitted:
+            if password == st.secrets["password"]:
+                st.session_state["authenticated"] = True
+                st.rerun()  # restart app with new state
+            else:
+                st.error("Invalid credentials!")
+
+
 def assystente_app():
     st.markdown(f"""
         <div style="display: flex; align-items: center;">
@@ -73,6 +77,7 @@ def assystente_app():
             content = msg.content[0].text.value
             with st.chat_message(role):
                 st.markdown(content)
+
 
 # main control
 if "authenticated" not in st.session_state or not st.session_state["authenticated"]:
