@@ -8,7 +8,8 @@ def get_base64_image(image_path):
         b64_string = base64.b64encode(img_file.read()).decode()
         return f"data:image/png;base64,{b64_string}"
 
-# Prepare
+# common
+title="Assystente"
 duck_base64 = get_base64_image("duck.png")
 st.set_page_config(page_title=title, page_icon="duck.png")
 
@@ -24,7 +25,6 @@ def login_page():
             st.error("Invalid credentials!")
                      
 def assystente_app():
-    title="Assystente"
     st.markdown(f"""
         <div style="display: flex; align-items: center;">
             <img src="{duck_base64}" width="120" style="margin-right: 15px;">
