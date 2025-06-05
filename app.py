@@ -14,9 +14,9 @@ duck_base64 = get_base64_image("duck.png")
 st.set_page_config(page_title=title, page_icon="duck.png")
 
 def login_page():
-    st.markdown("<h1 style='text-align: center; width: 800px;'>KI wird den Menschen nicht ersetzen.</h1>", unsafe_allow_html=True)
-    st.markdown("<div style='text-align: right;margin-bottom: 10%;'><b>...sie wird jene ersetzen, die sich weigern, sie zu nutzen...</b></div>", unsafe_allow_html=True)
     with st.form("login_form"):
+        st.markdown("<h1 style='text-align: center; width: 800px;'>KI wird den Menschen nicht ersetzen.</h1>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align: right;margin-bottom: 10%;'><b>...sie wird jene ersetzen, die sich weigern, sie zu nutzen...</b></div>", unsafe_allow_html=True)
         password = st.text_input("Guru Kennwort:", type="password", help="")
         submitted = st.form_submit_button("Ich bin's")
         if submitted:
