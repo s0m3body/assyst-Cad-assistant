@@ -18,6 +18,7 @@ def login_page():
     st.markdown("""
         <style>
             div[data-testid="stForm"] {
+                background: solid #666666;
                 max-width: 1000px;
                 width: 1000px;
                 width: 100%;
