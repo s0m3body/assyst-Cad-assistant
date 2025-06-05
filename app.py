@@ -28,9 +28,6 @@ def login_page():
                 div[data-testid="stForm"] div {
                     white-space: nowrap;
                 }
-                div[data-baseweb="tooltip"] {
-                    display: none !important;
-                }
             </style>
         """, unsafe_allow_html=True)
         st.markdown("<h1 style='text-align: center;'>Die KI wird den Menschen nicht ersetzen.</h1>", unsafe_allow_html=True)
