@@ -54,7 +54,8 @@ def assystente_app():
 
     #ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB" # 20250527
     #ASSISTANT_ID = "asst_eYS26BK1AXnbRTOECdN1Bvax" # 20250619
-    ASSISTANT_ID = "asst_eYS26BK1AXnbRTOECdN1Bvax" # 20250619
+    #ASSISTANT_ID = "asst_eYS26BK1AXnbRTOECdN1Bvax" # 20250619
+    ASSISTANT_ID = "asst_p7YLYouRF69uaeNyaa5drVaP" # 20250711
 
     if "thread_id" not in st.session_state:
         thread = client.beta.threads.create()
