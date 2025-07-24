@@ -2,7 +2,6 @@ import streamlit as st
 from openai import OpenAI
 import time
 import base64
-import re
 
 _dollar_pattern = re.compile(r'(?<!\\)\$')
 
@@ -96,9 +95,8 @@ def assystente_app():
         for msg in reversed(messages.data):
             role = msg.role
             content = msg.content[0].text.value
-            content = _dollar_pattern.sub(r'\\$', content)
             with st.chat_message(role):
-                st.markdown(content)
+                st.text(content)
 
 
 # main control
