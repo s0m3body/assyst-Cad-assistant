@@ -3,6 +3,8 @@ from openai import OpenAI
 import time
 import base64
 
+_dollar_pattern = re.compile(r'(?<!\\)\$')
+
 def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
         b64_string = base64.b64encode(img_file.read()).decode()
@@ -93,6 +95,7 @@ def assystente_app():
         for msg in reversed(messages.data):
             role = msg.role
             content = msg.content[0].text.value
+            content = _dollar_pattern.sub(r'\\$', content)
             with st.chat_message(role):
                 st.markdown(content)
 
