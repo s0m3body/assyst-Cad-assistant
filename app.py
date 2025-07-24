@@ -2,6 +2,7 @@ import streamlit as st
 from openai import OpenAI
 import time
 import base64
+import re
 
 _dollar_pattern = re.compile(r'(?<!\\)\$')
 
