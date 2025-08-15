@@ -52,10 +52,8 @@ def assystente_app():
 
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-    #ASSISTANT_ID = "asst_BzeO7NF2XnErzF2BLRsuBceB" # 20250527
-    #ASSISTANT_ID = "asst_eYS26BK1AXnbRTOECdN1Bvax" # 20250619
-    #ASSISTANT_ID = "asst_eYS26BK1AXnbRTOECdN1Bvax" # 20250619
-    ASSISTANT_ID = "asst_p7YLYouRF69uaeNyaa5drVaP" # 20250711
+    #ASSISTANT_ID = "asst_p7YLYouRF69uaeNyaa5drVaP" # 20250711
+    ASSISTANT_ID = "asst_3ZMRN85MFriolazkQIoBDQGb" # 20250815
 
     if "thread_id" not in st.session_state:
         thread = client.beta.threads.create()
